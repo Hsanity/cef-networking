@@ -8,7 +8,7 @@
 
 #pragma comment(lib, "ws2_32.lib")
 
-#define DEFAULT_PORT "27015"
+#define DEFAULT_PORT "8080"
 #define SERVER "192.168.68.103"
 
 int main(int argc, char* argv[])

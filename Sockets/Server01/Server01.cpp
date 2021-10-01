@@ -12,7 +12,7 @@
 #pragma comment(lib, "ws2_32.lib")
 #pragma comment(lib, "WinInet.lib")
 
-#define DEFAULT_PORT "27015"
+#define DEFAULT_PORT "8080"
 
 std::string real_ip()
 {
