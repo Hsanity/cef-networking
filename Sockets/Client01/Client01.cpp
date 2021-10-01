@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
     WSADATA wsaData;
     int err;
 
-    err = WSAStartup(MAKEWORD(1, 1), &wsaData);
+    err = WSAStartup(MAKEWORD(2, 2), &wsaData);
     if (err != 0)
     {
         std::cout << "WSAStartup failed with error: " << err << std::endl;
@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
         getaddrinfo (function): fills result struct
     */
 
-    char* server_addr_in = NULL;
+    std::string server_addr_in;
     std::cout << "Enter Server Address.." << std::endl;
     std::cin >> server_addr_in;
 
@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
     hints.ai_socktype = SOCK_STREAM;
     hints.ai_protocol = IPPROTO_TCP;
 
-    err = getaddrinfo(server_addr_in, DEFAULT_PORT, &hints, &result);
+    err = getaddrinfo(server_addr_in.c_str(), DEFAULT_PORT, &hints, &result);
     if (err != 0) {
         std::cout << "getaddrinfo failed: " << err << std::endl;
         WSACleanup();
@@ -74,6 +74,8 @@ int main(int argc, char* argv[])
 
         TODO: Try next address if connection call failed.
     */
+
+    std::cout << "Attempting to connect to server." << std::endl;
 
     err = connect(ConnectSocket, ptr->ai_addr, (int)ptr->ai_addrlen);
     if (err == SOCKET_ERROR)
