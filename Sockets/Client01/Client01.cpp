@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
     hints.ai_protocol = IPPROTO_TCP;
 
     //err = getaddrinfo(SERVER, DEFAULT_PORT, &hints, &result);
-    err = getaddrinfo(server_addr_in.c_str(), DEFAULT_PORT, &hints, &result);
+    err = getaddrinfo("192.168.68.103", DEFAULT_PORT, &hints, &result);
     if (err != 0) {
         std::cout << "getaddrinfo failed: " << err << std::endl;
         WSACleanup();
@@ -100,7 +100,7 @@ int main(int argc, char* argv[])
 
     std::cout << "Connected." << std::endl;
     
-    char* msg = NULL;
+    std::string msg;
     std::cout << "Send Message.." << std::endl;
     std::cin >> msg;
 

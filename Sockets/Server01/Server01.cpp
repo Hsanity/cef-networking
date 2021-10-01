@@ -149,6 +149,7 @@ int main(int argc, char* argv[])
     /*
         Accept Client connection.
     */
+    std::cout << "\nListening..\n" << std::endl;
 
     SOCKET ClientSocket = INVALID_SOCKET;
 
