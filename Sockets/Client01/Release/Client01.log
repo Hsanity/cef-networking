@@ -1,6 +1,6 @@
 ﻿  Client01.cpp
   Generating code
   Previous IPDB not found, fall back to full compilation.
-  All 41 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 349 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   Client01.vcxproj -> D:\cef-networking-main\Sockets\SocketProgramming01\Release\Client01.exe
