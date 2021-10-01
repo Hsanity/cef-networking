@@ -3,12 +3,43 @@
 #include <windows.h>
 #include <winsock.h>
 #include <stdio.h>
+#include <windows.h>
 
 #include <iostream>
+#include <string>
+#include <WinInet.h>
 
 #pragma comment(lib, "ws2_32.lib")
+#pragma comment(lib, "WinInet.lib")
 
 #define DEFAULT_PORT "27015"
+
+std::string real_ip()
+{
+    LPCWSTR word = L"IP retriever";
+    LPCWSTR word2 = L"http://myexternalip.com/raw";
+
+    HINTERNET net = InternetOpen(word,
+        INTERNET_OPEN_TYPE_PRECONFIG,
+        NULL,
+        NULL,
+        0);
+
+    HINTERNET conn = InternetOpenUrl(net,
+        word2,
+        NULL,
+        0,
+        INTERNET_FLAG_RELOAD,
+        0);
+
+    char buffer[4096];
+    DWORD read;
+
+    InternetReadFile(conn, buffer, sizeof(buffer) / sizeof(buffer[0]), &read);
+    InternetCloseHandle(net);
+
+    return std::string(buffer, read);
+}
 
 int main(int argc, char* argv[])
 {
@@ -20,7 +51,7 @@ int main(int argc, char* argv[])
     WSADATA wsaData;
     int err;
 
-    err = WSAStartup(MAKEWORD(1, 1), &wsaData);
+    err = WSAStartup(MAKEWORD(2, 2), &wsaData);
     if (err != 0)
     {
         std::cout << "WSAStartup failed with error: " << err << std::endl;
@@ -61,7 +92,21 @@ int main(int argc, char* argv[])
         WSACleanup();
         return 1;
     }
-    
+
+    unsigned long ul = 1;
+
+    int nRet = ioctlsocket(ListenSocket, FIONBIO, (unsigned long*)&ul);
+
+    if (nRet == SOCKET_ERROR)
+    {
+        // Failed to put the socket into non-blocking mode
+
+        std::cout << "Error at ioctlsocket(): " << WSAGetLastError() << std::endl;
+        freeaddrinfo(result);
+        WSACleanup();
+        return 1;
+    }
+
     /*
         Binding a socket.
         freeaddrinfo to free memory.
@@ -81,14 +126,14 @@ int main(int argc, char* argv[])
     char* str = new char[256];
     gethostname(str, 256);
 
-    //std::cout << "Address: " << str << std::endl;
-
     /*
         Listen function: Takes socket and backlog.
         Backlog: max length of queue - of pending connections to accept.
         SOMAXCONN - Max number of pending connections in queue.
     */
-
+    std::cout << "\n\n-----IP ADDRESS-----\n\n" << std::endl;
+    std::cout << real_ip() << std::endl;
+    std::cout << "\n\n" << std::endl;
     std::cout << "Listening for connections..." << std::endl;
 
     if (listen(ListenSocket, SOMAXCONN) == SOCKET_ERROR)
@@ -99,6 +144,7 @@ int main(int argc, char* argv[])
         return 1;
     }
 
+    std::cout << "\n\n-----BEGIN SERVER LOOP-----\n\n" << std::endl;
     /*
         Accept Client connection.
     */
@@ -113,13 +159,40 @@ int main(int argc, char* argv[])
         WSACleanup();
         return 1;
     }
-    std::cout << "Accepted..." << std::endl;
+    
     /*
-        TODO:
         Message Loop.
     */
+    fd_set  fdread;
+    int     ret;
 
+    // Manage I/O on the socket
+    while (TRUE)
+    {
+        // Always clear the read set before calling select()
+        FD_ZERO(&fdread);
 
+        // Add socket s to the read set
+        FD_SET(ClientSocket, &fdread);
+
+        if ((ret = select(0, &fdread, NULL, NULL, NULL)) == SOCKET_ERROR)
+        {
+            // Error condition
+        }
+
+        if (ret > 0)
+        {
+            // For this simple case, select() should return
+            // the value 1. An application dealing with
+            // more than one socket could get a value
+            // greater than 1. At this point, your
+            // application should check to see whether the socket is part of a set.
+            if (FD_ISSET(ClientSocket, &fdread))
+            {
+                // A read event has occurred on socket s
+            }
+        }
+    }
 
     /*
         Cleanup
@@ -128,3 +201,4 @@ int main(int argc, char* argv[])
 
 	std::cout << "\n\n-----END OF SERVER OUTPUT-----\n\n" << std::endl;
 }
+

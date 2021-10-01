@@ -1,0 +1,6 @@
+﻿  Arpie Server.cpp
+D:\cef-networking-main\Sockets\Arpie Server\Arpie Server.cpp(19,7): warning C4101: 'sendbuf': unreferenced local variable
+D:\cef-networking-main\Sockets\Arpie Server\Arpie Server.cpp(13,26): warning C4101: 'ThisSenderInfo': unreferenced local variable
+D:\cef-networking-main\Sockets\Arpie Server\Arpie Server.cpp(20,6): warning C4101: 'BytesSent': unreferenced local variable
+D:\cef-networking-main\Sockets\Arpie Server\Arpie Server.cpp(20,17): warning C4101: 'nlen': unreferenced local variable
+  Arpie Server.vcxproj -> D:\cef-networking-main\Sockets\SocketProgramming01\Debug\Arpie Server.exe
