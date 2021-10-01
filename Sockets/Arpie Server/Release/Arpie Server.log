@@ -1,0 +1,10 @@
+﻿  Arpie Server.cpp
+D:\cef-networking-main\Sockets\Arpie Server\Arpie Server.cpp(19,7): warning C4101: 'sendbuf': unreferenced local variable
+D:\cef-networking-main\Sockets\Arpie Server\Arpie Server.cpp(13,26): warning C4101: 'ThisSenderInfo': unreferenced local variable
+D:\cef-networking-main\Sockets\Arpie Server\Arpie Server.cpp(20,6): warning C4101: 'BytesSent': unreferenced local variable
+D:\cef-networking-main\Sockets\Arpie Server\Arpie Server.cpp(20,17): warning C4101: 'nlen': unreferenced local variable
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 4 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Arpie Server.vcxproj -> D:\cef-networking-main\Sockets\SocketProgramming01\Release\Arpie Server.exe
