@@ -33,6 +33,10 @@ int main(int argc, char* argv[])
         getaddrinfo (function): fills result struct
     */
 
+    char* server_addr_in = NULL;
+    std::cout << "Enter Server Address.." << std::endl;
+    std::cin >> server_addr_in;
+
     struct addrinfo* result = NULL, * ptr = NULL, hints;
 
     ZeroMemory(&hints, sizeof(hints));
@@ -40,7 +44,7 @@ int main(int argc, char* argv[])
     hints.ai_socktype = SOCK_STREAM;
     hints.ai_protocol = IPPROTO_TCP;
 
-    err = getaddrinfo(SERVER, DEFAULT_PORT, &hints, &result);
+    err = getaddrinfo(server_addr_in, DEFAULT_PORT, &hints, &result);
     if (err != 0) {
         std::cout << "getaddrinfo failed: " << err << std::endl;
         WSACleanup();
@@ -88,11 +92,14 @@ int main(int argc, char* argv[])
     }
 
     /*
-        TODO:
         Message Loop.
     */
 
-    std::cout << "Connected?..." << std::endl;
+    std::cout << "Connected." << std::endl;
+    
+    char* msg = NULL;
+    std::cout << "Send Message.." << std::endl;
+    std::cin >> msg;
 
     /*
         Cleanup
