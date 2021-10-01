@@ -95,17 +95,17 @@ int main(int argc, char* argv[])
 
     unsigned long ul = 1;
 
-    int nRet = ioctlsocket(ListenSocket, FIONBIO, (unsigned long*)&ul);
+    //int nRet = ioctlsocket(ListenSocket, FIONBIO, (unsigned long*)&ul);
 
-    if (nRet == SOCKET_ERROR)
-    {
+    //if (nRet == SOCKET_ERROR)
+    //{
         // Failed to put the socket into non-blocking mode
 
-        std::cout << "Error at ioctlsocket(): " << WSAGetLastError() << std::endl;
-        freeaddrinfo(result);
-        WSACleanup();
-        return 1;
-    }
+       // std::cout << "Error at ioctlsocket(): " << WSAGetLastError() << std::endl;
+       // freeaddrinfo(result);
+        //WSACleanup();
+        //return 1;
+    //}
 
     /*
         Binding a socket.
@@ -133,7 +133,8 @@ int main(int argc, char* argv[])
     */
     std::cout << "\n\n-----IP ADDRESS-----\n\n" << std::endl;
     std::cout << real_ip() << std::endl;
-    std::cout << "\n\n" << std::endl;
+
+    std::cout << "\n" << std::endl;
     std::cout << "Listening for connections..." << std::endl;
 
     if (listen(ListenSocket, SOMAXCONN) == SOCKET_ERROR)
