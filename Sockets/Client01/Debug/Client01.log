@@ -1,3 +1,2 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppClean.targets(76,5): warning : The process cannot access the file 'd:\cef-networking-main\sockets\client01\debug\client01.tlog\link.write.1.tlog' because it is being used by another process.
-  Client01.cpp
+﻿  Client01.cpp
   Client01.vcxproj -> D:\cef-networking-main\Sockets\SocketProgramming01\Debug\Client01.exe

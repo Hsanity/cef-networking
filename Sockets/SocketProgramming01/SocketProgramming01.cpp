@@ -12,22 +12,6 @@ int main()
 {
     std::cout << "-----CLIENT OUTPUT-----\n" << std::endl;
 
-    /* 
-        Initializing Winsock by calling WSAStartup function.
-        Returns WSADATA struct.
-
-        typedef struct WSAData {
-           WORD     wVersion;                               - Version expected to use.
-           WORD     wHighVersion;                           - Highest supported version.
-           char     szDescription[WSADESCRIPTION_LEN+1];    - ASCII string (NULL-terminated) description of Windows Socket implementaion. (up to 256 chars).
-           char     szSystemStatus[WSASYS_STATUS_LEN+1];    - String containing relevant status or configuration information.
-           unsigned short iMaxSockets;                      - Maximum number of sockets that may be opened. (Depricated >= v2.0)
-           unsigned short iMaxUdpDg;                        - Maximum datagram message size. (Depricated >= v2.0)
-           char FAR *lpVendorInfo;                          - Vendor specific information. (Depricated >= v2.0)
-        } WSADATA;
-        https://docs.microsoft.com/en-us/windows/win32/api/winsock/ns-winsock-wsadata#requirements
-
-    */
     WSADATA wsaData;
     int err;
 

@@ -9,7 +9,7 @@
 #pragma comment(lib, "ws2_32.lib")
 
 #define DEFAULT_PORT "27015"
-#define SERVER "localhost"
+#define SERVER "192.168.68.103"
 
 int main(int argc, char* argv[])
 {
@@ -44,6 +44,7 @@ int main(int argc, char* argv[])
     hints.ai_socktype = SOCK_STREAM;
     hints.ai_protocol = IPPROTO_TCP;
 
+    //err = getaddrinfo(SERVER, DEFAULT_PORT, &hints, &result);
     err = getaddrinfo(server_addr_in.c_str(), DEFAULT_PORT, &hints, &result);
     if (err != 0) {
         std::cout << "getaddrinfo failed: " << err << std::endl;

@@ -161,6 +161,7 @@ int main(int argc, char* argv[])
         return 1;
     }
     
+    std::cout << "\nConnected Client..\n" << std::endl;
     /*
         Message Loop.
     */
