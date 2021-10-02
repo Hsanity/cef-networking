@@ -1,0 +1,6 @@
+﻿  main.cpp
+  ServerManager.cpp
+D:\cef-networking-main\myarpie-serverside\MyArpieServer\MyArpieServer\ServerManager.cpp(17,17): warning C4101: 'InternetAddr': unreferenced local variable
+  Generating Code...
+D:\cef-networking-main\myarpie-serverside\MyArpieServer\MyArpieServer\ServerManager.cpp(271): warning C4715: 'ServerManager::Run': not all control paths return a value
+  MyArpieServer.vcxproj -> D:\cef-networking-main\myarpie-serverside\MyArpieServer\Debug\MyArpieServer.exe

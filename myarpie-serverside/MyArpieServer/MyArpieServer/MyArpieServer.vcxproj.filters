@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\winsock">
+      <UniqueIdentifier>{f3045720-b05e-4348-b030-6a137d45a673}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\database">
+      <UniqueIdentifier>{3380c9c8-e136-4d63-a0a7-9d567154fb6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\database\sqlite">
+      <UniqueIdentifier>{400f2dba-b0cf-419e-a451-600e71f3ae4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\database\network">
+      <UniqueIdentifier>{b8a3d7f4-5770-4ab2-8198-8f1e358f175f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\database\abac">
+      <UniqueIdentifier>{830e3c84-abc0-41fb-8c74-07abb599a85e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\database\authentication">
+      <UniqueIdentifier>{f49c25e3-7b34-4e67-a8ec-910368849db7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerManager.cpp">
+      <Filter>Source Files\winsock</Filter>
+    </ClCompile>
+    <ClCompile Include="databaseLayer.cc">
+      <Filter>Source Files\database</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlite\shell.c">
+      <Filter>Source Files\database\sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlite\sqlite3.c">
+      <Filter>Source Files\database\sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="network\NetworkHandler.cc">
+      <Filter>Source Files\database\network</Filter>
+    </ClCompile>
+    <ClCompile Include="abac\policyDecision.cc">
+      <Filter>Source Files\database\abac</Filter>
+    </ClCompile>
+    <ClCompile Include="abac\policyEnforcement.cc">
+      <Filter>Source Files\database\abac</Filter>
+    </ClCompile>
+    <ClCompile Include="authentication\authenticator.cc">
+      <Filter>Source Files\database\authentication</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ServerManager.h">
+      <Filter>Source Files\winsock</Filter>
+    </ClInclude>
+    <ClInclude Include="databaseLayer.h">
+      <Filter>Source Files\database</Filter>
+    </ClInclude>
+    <ClInclude Include="databaseResources.h">
+      <Filter>Source Files\database</Filter>
+    </ClInclude>
+    <ClInclude Include="sqlite\sqlite3ext.h">
+      <Filter>Source Files\database\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="sqlite\sqlite3.h">
+      <Filter>Source Files\database\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="network\NetworkHandler.h">
+      <Filter>Source Files\database\network</Filter>
+    </ClInclude>
+    <ClInclude Include="abac\policyDecision.h">
+      <Filter>Source Files\database\abac</Filter>
+    </ClInclude>
+    <ClInclude Include="abac\policyEnforcement.h">
+      <Filter>Source Files\database\abac</Filter>
+    </ClInclude>
+    <ClInclude Include="authentication\authenticator.h">
+      <Filter>Source Files\database\authentication</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
