@@ -1,2 +1,3 @@
 ﻿  Server01.cpp
+D:\cef-networking-main\Sockets\Server01\Server01.cpp(246,17): warning C4101: 'InternetAddr': unreferenced local variable
   Server01.vcxproj -> D:\cef-networking-main\Sockets\SocketProgramming01\Debug\Server01.exe

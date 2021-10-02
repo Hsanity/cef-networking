@@ -1,7 +1,12 @@
 ﻿  Server01.cpp
+D:\cef-networking-main\Sockets\Server01\Server01.cpp(285,13): warning C4101: 'fdreadsz': unreferenced local variable
+D:\cef-networking-main\Sockets\Server01\Server01.cpp(284,13): warning C4101: 'fdfreesz': unreferenced local variable
+D:\cef-networking-main\Sockets\Server01\Server01.cpp(287,13): warning C4101: 'fdfree': unreferenced local variable
+D:\cef-networking-main\Sockets\Server01\Server01.cpp(283,13): warning C4101: 'fdallocatedsz': unreferenced local variable
+D:\cef-networking-main\Sockets\Server01\Server01.cpp(286,13): warning C4101: 'fdallocated': unreferenced local variable
   Generating code
-  1 of 337 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+  1 of 362 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    2 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Server01.vcxproj -> D:\cef-networking-main\Sockets\SocketProgramming01\Release\Server01.exe

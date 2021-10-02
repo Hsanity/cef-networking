@@ -8,7 +8,7 @@
 
 #pragma comment(lib, "ws2_32.lib")
 
-#define DEFAULT_PORT "8080"
+#define DEFAULT_PORT "2522"
 #define SERVER "192.168.68.103"
 
 int main(int argc, char* argv[])
@@ -44,8 +44,7 @@ int main(int argc, char* argv[])
     hints.ai_socktype = SOCK_STREAM;
     hints.ai_protocol = IPPROTO_TCP;
 
-    //err = getaddrinfo(SERVER, DEFAULT_PORT, &hints, &result);
-    err = getaddrinfo("192.168.68.103", DEFAULT_PORT, &hints, &result);
+    err = getaddrinfo(server_addr_in.c_str(), DEFAULT_PORT, &hints, &result);
     if (err != 0) {
         std::cout << "getaddrinfo failed: " << err << std::endl;
         WSACleanup();
@@ -99,10 +98,26 @@ int main(int argc, char* argv[])
     */
 
     std::cout << "Connected." << std::endl;
-    
-    std::string msg;
-    std::cout << "Send Message.." << std::endl;
-    std::cin >> msg;
+    while(true)
+    {
+        std::string msg;
+        std::cout << "Send Message.." << std::endl;
+        std::cin >> msg;
+
+        std::cout << "Sending..." << std::endl;
+
+        int retSend = send(ConnectSocket, msg.c_str(), (int)strlen(msg.c_str()), 0);
+        //int send(SOCKET s, const char FAR * buf, int len, int flags);
+
+        if(retSend == SOCKET_ERROR)
+        {
+            std::cout << "Unable to send to server. " << WSAGetLastError() << std::endl;
+            closesocket(ConnectSocket);
+            WSACleanup();
+            return 1;
+        }
+
+    }
 
     /*
         Cleanup
